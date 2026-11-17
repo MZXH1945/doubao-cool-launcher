@@ -2,6 +2,11 @@
 
 一个全屏启动动画，打开豆包之前先放一段炫酷动画，带配音和立绘。
 
+## 📦 下载
+
+- 安装包（推荐，解压即用）：[doubao-launcher.zip（2.6 MB）](https://github.com/MZXH1945/doubao-cool-launcher/releases/download/v1.3.0/doubao-launcher.zip)
+- 源码：`git clone https://github.com/MZXH1945/doubao-cool-launcher.git`
+
 ---
 
 ## 🚀 怎么用？
