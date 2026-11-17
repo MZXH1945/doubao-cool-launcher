@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>豆包启动器 · 小白设置面板</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Microsoft YaHei", "Segoe UI", system-ui, sans-serif;
+    background: #f5f6f8;
+    color: #23242a;
+    padding: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    color: #8a8b93;
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  }
+  .card h2 {
+    font-size: 15px;
+    color: #8a8b93;
+    font-weight: 600;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f0f0f2;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+  .row.full { grid-template-columns: 1fr; }
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #3a3b40;
+  }
+  input[type=text], select {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #e0e1e5;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color .2s;
+  }
+  input[type=text]:focus, select:focus {
+    border-color: #4d6bfe;
+  }
+  .color-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .color-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid #e0e1e5;
+    cursor: pointer;
+  }
+  .color-value {
+    font-family: monospace;
+    font-size: 14px;
+    color: #666;
+  }
+  .btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .btn {
+    padding: 9px 18px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  .btn-primary {
+    background: #4d6bfe;
+    color: #fff;
+  }
+  .btn-secondary {
+    background: #f0f0f2;
+    color: #333;
+  }
+  .btn:hover { opacity: .9; }
+  .tip {
+    background: #fff8e6;
+    border-left: 3px solid #ff9500;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #665;
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+  .option-btn {
+    padding: 8px 16px;
+    border: 2px solid #e0e1e5;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all .2s;
+  }
+  .option-btn.active {
+    border-color: #4d6bfe;
+    background: #eef2ff;
+    color: #4d6bfe;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<h1>🎨 豆包启动器 · 小白设置面板</h1>
+<div class="subtitle">直接在网页上改，改完点保存就行，不用碰代码文件</div>
+
+<!-- 基本设置 -->
+<div class="card">
+  <h2>基础设置</h2>
+
+  <div class="row">
+    <div>
+      <label>配音语言</label>
+      <select id="voiceType">
+        <option value="0">机械女声</option>
+        <option value="1" selected>墨者新鸿（汉语男声）</option>
+        <option value="2">俄语版</option>
+      </select>
+    </div>
+    <div>
+      <label>Logo 颜色</label>
+      <div class="btn-group">
+        <button class="option-btn active" data-logo="red">🔴 红色</button>
+        <button class="option-btn" data-logo="yellow">🟡 黄色</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div>
+      <label>立绘款式</label>
+      <select id="mascotType">
+        <option value="0" selected>第 1 款（默认）</option>
+        <option value="1">第 2 款</option>
+        <option value="2">第 3 款</option>
+        <option value="3">第 4 款</option>
+        <option value="4">第 5 款</option>
+        <option value="-1">不显示人物</option>
+      </select>
+    </div>
+    <div>
+      <label>主色调</label>
+      <div class="color-row">
+        <input type="color" id="mainColor" value="#c70000" style="width:40px;height:40px;border:none;cursor:pointer;padding:0;">
+        <span class="color-value" id="mainColorValue">#c70000</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 文字设置 -->
+<div class="card">
+  <h2>文字内容（随便改）</h2>
+
+  <div class="row">
+    <div>
+      <label>大标题（主品牌名）</label>
+      <input type="text" id="brandName" value="豆包智能体">
+    </div>
+    <div>
+      <label>英文小字</label>
+      <input type="text" id="brandSub" value="DOUBAO ASSISTANT">
+    </div>
+  </div>
+
+  <div class="row">
+    <div>
+      <label>副标题</label>
+      <input type="text" id="brandSlogan" value="AI 助手">
+    </div>
+    <div>
+      <label>机构名</label>
+      <input type="text" id="orgName" value="字节跳动">
+    </div>
+  </div>
+
+  <div class="row">
+    <div>
+      <label>结束欢迎语</label>
+      <input type="text" id="welcomeText" value="欢迎使用豆包">
+    </div>
+    <div>
+      <label>最底部小字</label>
+      <input type="text" id="footerText" value="Powered By Doubao">
+    </div>
+  </div>
+</div>
+
+<!-- 保存按钮 -->
+<div class="card">
+  <h2>保存设置</h2>
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="saveConfig()">💾 保存设置</button>
+    <button class="btn btn-secondary" onclick="previewNow()">👁️ 立即预览效果</button>
+    <button class="btn btn-secondary" onclick="resetConfig()">↩️ 恢复默认</button>
+  </div>
+  <div class="tip">
+    💡 保存后设置会自动生效，下次打开启动器就是你改的样子。<br>
+    想换自己的立绘？把图片命名为 <code>custom-mascot.webp</code> 丢进 <code>lib/assets/</code> 文件夹就行。
+  </div>
+</div>
+
+<script>
+  // 读取当前配置
+  function loadConfig() {
+    const saved = localStorage.getItem('doubao_launcher_config')
+    if (saved) {
+      const cfg = JSON.parse(saved)
+      document.getElementById('voiceType').value = cfg.voiceType || 1
+      document.getElementById('mascotType').value = cfg.mascotType || 0
+      document.getElementById('brandName').value = cfg.brandName || '豆包智能体'
+      document.getElementById('brandSub').value = cfg.brandSub || 'DOUBAO ASSISTANT'
+      document.getElementById('brandSlogan').value = cfg.brandSlogan || 'AI 助手'
+      document.getElementById('orgName').value = cfg.orgName || '字节跳动'
+      document.getElementById('welcomeText').value = cfg.welcomeText || '欢迎使用豆包'
+      document.getElementById('footerText').value = cfg.footerText || 'Powered By Doubao'
+      document.getElementById('mainColor').value = cfg.mainColor || '#c70000'
+      document.getElementById('mainColorValue').textContent = cfg.mainColor || '#c70000'
+      // Logo 颜色按钮
+      document.querySelectorAll('.option-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.logo === (cfg.logoColor || 'red'))
+      })
+    }
+  }
+
+  // 保存配置
+  function saveConfig() {
+    const cfg = {
+      voiceType: parseInt(document.getElementById('voiceType').value),
+      mascotType: parseInt(document.getElementById('mascotType').value),
+      logoColor: document.querySelector('.option-btn.active').dataset.logo,
+      brandName: document.getElementById('brandName').value,
+      brandSub: document.getElementById('brandSub').value,
+      brandSlogan: document.getElementById('brandSlogan').value,
+      orgName: document.getElementById('orgName').value,
+      welcomeText: document.getElementById('welcomeText').value,
+      footerText: document.getElementById('footerText').value,
+      mainColor: document.getElementById('mainColor').value,
+    }
+    localStorage.setItem('doubao_launcher_config', JSON.stringify(cfg))
+    alert('✅ 设置已保存！\n\n下次打开启动器就是你改的样子了。')
+  }
+
+  // 立即预览
+  function previewNow() {
+    saveConfig()
+    window.open('preview/index.html', '_blank')
+  }
+
+  // 恢复默认
+  function resetConfig() {
+    if (confirm('确定要恢复默认设置吗？')) {
+      localStorage.removeItem('doubao_launcher_config')
+      location.reload()
+    }
+  }
+
+  // 颜色选择器同步显示
+  document.getElementById('mainColor').addEventListener('input', e => {
+    document.getElementById('mainColorValue').textContent = e.target.value
+  })
+
+  // Logo 颜色按钮切换
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'))
+      btn.classList.add('active')
+    })
+  })
+
+  // 页面加载时读取配置
+  loadConfig()
+</script>
+
+</body>
+</html>
